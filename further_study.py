@@ -25,7 +25,10 @@ def custom_len(input_list):
 
     """
 
-    return 0
+    count = 0
+    for item in input_list:
+        count += 1
+    return count
 
 
 # For the next four exercises, you'll need to be clever and think about ways
@@ -51,7 +54,7 @@ def custom_append(input_list, value):
 
     """
 
-    pass
+    input_list += [value]
 
 
 def custom_extend(input_list, second_list):
@@ -68,7 +71,7 @@ def custom_extend(input_list, second_list):
 
     """
 
-    pass
+    input_list += second_list
 
 
 def custom_insert(input_list, index, value):
@@ -85,7 +88,9 @@ def custom_insert(input_list, index, value):
 
     """
 
-    pass
+    latter = input_list[index:]
+    input_list[index] = value
+    input_list += latter
 
 
 def custom_remove(input_list, value):
@@ -102,7 +107,12 @@ def custom_remove(input_list, value):
 
     """
 
-    pass
+    counter = 0
+    for item in input_list:
+        if item == value:
+            del input_list[counter]
+            break
+        counter += 1
 
 
 def custom_pop(input_list):
@@ -117,7 +127,7 @@ def custom_pop(input_list):
 
     """
 
-    return None
+    return input_list[-1:][0]
 
 
 def custom_index(input_list, value):
@@ -132,7 +142,13 @@ def custom_index(input_list, value):
 
     """
 
-    return 0
+    counter = 0
+    for item in input_list:
+        if item == value:
+            break
+        counter += 1
+
+    return counter
 
 
 def custom_count(input_list, value):
@@ -147,7 +163,12 @@ def custom_count(input_list, value):
 
     """
 
-    return 0
+    counter = 0
+    for item in input_list:
+        if item == value:
+            counter += 1
+
+    return counter
 
 
 def custom_reverse(input_list):
@@ -164,7 +185,10 @@ def custom_reverse(input_list):
 
     """
 
-    pass
+    i = 0
+    while i < len(input_list)/2:
+        input_list[i], input_list[-1 - i] = input_list[-1 - i], input_list[i]
+        i += 1
 
 
 def custom_contains(input_list, value):
@@ -183,7 +207,8 @@ def custom_contains(input_list, value):
 
     """
 
-    return None
+    matching_value = [item for item in input_list if item == value]
+    return False if not matching_value else True
 
 
 def custom_equality(some_list, another_list):
@@ -201,7 +226,12 @@ def custom_equality(some_list, another_list):
 
     """
 
-    return None
+    i = 0
+    for item in some_list:
+        if item != another_list[i]:
+            return False
+        i += 1
+    return True
 
 
 ##############################################################################
